@@ -1,0 +1,51 @@
+body {
+	background: rgb(150,200,255);
+}
+.LoginLink {
+	position: absolute;
+	top: 10px;
+	left: 10px;				
+}
+#facebook {
+	width: 50;
+	height: 50;
+}
+#churchLogo {
+	width: 260px;
+	height: 110px;
+}
+textarea {  
+   font-family:"Sans-Serif", Times, serif;  
+   font-size: 14px;   
+}
+#HusbandMusic {
+	position: relative;
+	top: 20px
+}
+#WifeMusic {
+	position: relative;
+	top: 20px;
+}
+#HMusicTable {
+	position: relative;
+	top: -35px;
+}
+#WMusicTable {
+	position: relative;
+	top: -50px;
+}
+input[type=submit] {
+    width: 20%;
+    background-color: rgb(180,180,180);
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 5px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    font-style: italic;
+}
+input[type=submit]:hover {
+	background-color: rgb(100,100,100);
+}
+		

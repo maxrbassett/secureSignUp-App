@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+  <title>New Member Info</title>
+
+<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+  <h1>List of Members</h1>
+    <input type="text" onkeyup="search()" id="myinput" placeholder="Search..." title="Type in a name">
+    <h2><ul id="memberlist">
+          <% for (var i=0; i<members.length; i++) {%>
+            <li>
+             <a href="/member/<%=members[i]._id%>" id="members"><%=members[i].LastName%></a>
+            </li>
+          <% } %>
+      </ul></h2>
+ </body>
+</html>
