@@ -51,7 +51,7 @@ app.get('/member/:_id', (req,res) => {
 	var x =db.collection('members').findOne({"_id": new ObjectId(id)})
 	console.log(x)
 	
-});
+})
 
 
 
