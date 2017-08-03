@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -6,7 +6,7 @@ const mongoClient = require('mongodb').MongoClient;
 var db;
 var ObjectId = require('mongodb').ObjectId;
 
-mongoClient.connect('mongodb://maxrbassett:012694mrb@ds023550.mlab.com:23550/ward-form',(err,database) =>{
+mongoClient.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`,(err,database) =>{
 		if(err) return console.log(err)
 		db=database
 		app.listen(3000, () => {
