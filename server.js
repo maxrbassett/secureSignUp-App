@@ -1,6 +1,8 @@
 
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
+const port = process.env.PORT || 3000
 const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
@@ -48,7 +50,7 @@ var Member = mongoose.model('Member', memberSchema);
 mongoClient.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`,(err,database) =>{
 		if(err) return console.log(err)
 		db=database
-		app.listen(3000, () => {
+		app.listen(port, () => {
 		console.log('Server running')
 	})
 })
@@ -56,10 +58,10 @@ mongoClient.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(express.static('C:/Users/maxrb/Documents/WardForm2'));
+app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
-	res.sendFile('C:/Users/maxrb/Documents/WardForm2' + '/index.html')
+	res.sendFile(path.resolve(__dirname + '/index.html'));
 })
 
 app.post('/WardForm2', (req, res) => {
