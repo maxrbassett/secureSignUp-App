@@ -15,10 +15,11 @@ function search() {
       }
   }
 
-upload_mem = 
+var upload_mem = document.getElementById()
+var id = members
   upload_mem.addEventListener('click', function () {
-  fetch('quotes', {
-    method: 'put',
+  fetch('members', {
+    method: 'get',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       'name': 'Darth Vader',

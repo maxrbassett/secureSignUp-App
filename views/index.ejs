@@ -2,12 +2,15 @@
 <head>
   <title>New Member Info</title>
 
-<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<link href="CSS/index-style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
+  <div id="top">
   <h1>List of Members</h1>
+</div><br>
+  <button id="deleteButton">Delete Member</button>
     <input type="text" onkeyup="search()" id="myinput" placeholder="Search..." title="Type in a name">
     <h2><ul id="memberlist">
           <% for (var i=0; i<members.length; i++) {%>

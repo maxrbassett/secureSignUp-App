@@ -1,0 +1,61 @@
+#top{
+    background-color: #004c8c;
+    padding: 12px;
+    color: rgb(220,220,220);
+    border-radius: 10px;
+    font-size: 40px;
+}
+body{
+    background-color: #0277bd;
+
+}
+::-webkit-input-placeholder{
+    color: rgb(220,220,220);
+    font-size: 16px;
+}
+    #myinput {
+    background-color: #62727b;
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 25%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    color: white;
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid black; /* Add a grey border */
+    border-radius: 10px;
+    margin-bottom: 12px; /* Add some space below the input */
+    }
+
+    #memberlist {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    }
+
+    #memberlist li a {
+    border: 1px solid rgb(40,40,40); /* Add a border to all links */
+    border-radius: 5px;
+    width: 25%;
+    background-color: #62727b; /* Grey background color */
+    padding: 5px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 27px; /* Increase the font-size */
+    color: rgb(220,220,220); /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+
+
+    }
+
+    #memberlist li a:hover:not(.header) {
+    background-color: black;
+    }
+
+    #deleteButton {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        text-align: center;
+        background-size: 20px;
+        border: 1px solid rgb(200,100,100);
+
+    }

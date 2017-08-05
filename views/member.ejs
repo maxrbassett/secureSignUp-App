@@ -1,8 +1,135 @@
 <!DOCTYPE html>
 <head>
-	<title>Member Info</title>
+	<title><%=members.HFirstName%> and <%=members.WFirstName%> <%=members.LastName%></title>
+
+	<link rel="stylesheet" type="text/css" href="/CSS/member-style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	<%=members.LastName%>
-</body>
+	<div id="top_bar">
+		<img id="img" src="/CSS/blank-profile-picture-973460_1280.png" height="300" width="300">
+	<div id="fam">
+		<h3 id="FirstNames"><%=members.HFirstName%> and <%=members.WFirstName%></h3>
+		<h1 id="LastName"><%=members.LastName%></h1>
+	</div>
+	</div> <!-- This is to end the top bar div -->
+		<br><h2>General Information</h2>
+		<table id="GeneralTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+			<tr>
+				<th>Ward Move in Date</th>
+				<td><%=members.MoveinDate%></td>
+			</tr>
+				<th>Plan on staying in the ward</th>
+				<td><%=members.ExpectedExit%></td>
+			</tr>
+		</table>
+	
+		<br><strong><h2>Mission</h2></strong>
+		<table id="MissionTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<th><%=members.HFirstName%>'s Mission</th>
+				<td><%=members.HMission%></th>
+			</tr>
+			<tr>
+				<th><%=members.WFirstName%>'s Mission</th>
+				<td><%=members.WMission%></th>
+			</tr>
+		</table>
+
+		<br><strong><h2>Previous Callings</h2></strong>
+			<table id="PrevCallingTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<tr>
+					<th><%=members.HFirstName%></th>
+					<td><%=members.HPrevCalling%></td>
+				</tr>
+				<tr>
+					<th><%=members.WFirstName%></th>
+					<td><%=members.WPrevCalling%></td>
+				</tr>
+			</table>
+
+		<br><strong><h2><%=members.HFirstName%>'s Musical Abilities</h2></strong>
+			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<tr>
+					<th>Vocal:</th>
+					<td><%=members.HVocalAbilities%></td>
+				</tr>
+				<tr>
+					<th>Piano:</th>
+					<td><%=members.HPianoAbilities%></td>
+				</tr>
+				<tr>
+					<th>Organ:</th>
+					<td><%=members.HOrganAbilities%></td>
+				</tr>
+				<tr>
+					<th>Conducting:</th>
+					<td><%=members.HConductingAbilities%></td>
+				</tr>
+			</table>
+
+		<br><strong><h2><%=members.WFirstName%>'s Musical Abilities</h2></strong>
+			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<tr>
+					<th>Vocal:</th>
+					<td><%=members.WVocalAbilities%></td>
+				</tr>
+				<tr>
+					<th>Piano:</th>
+					<td><%=members.WPianoAbilities%></td>
+				</tr>
+				<tr>
+					<th>Organ:</th>
+					<td><%=members.WOrganAbilities%></td>
+				</tr>
+				<tr>
+					<th>Conducting:</th>
+					<td><%=members.WConductingAbilities%></td>
+				</tr>
+			</table>
+
+		<br><strong><h2>Education</h2></strong>
+			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<tr>
+					<th id="blankSpace"> </th>
+					<th>Major</th>
+					<th>School</th>
+				</tr>
+				<tr>
+					<th><%=members.HFirstName%></th>
+					<td><%=members.HMajor%></td>
+					<td><%=members.HSchool%></td>
+				</tr>
+				<tr>
+					<th><%=members.WFirstName%></th>
+					<td><%=members.WMajor%></td>
+					<td><%=members.WSchool%></td>
+				</tr>		
+			</table>
+
+		<br><h2>Work</h2>
+			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<tr>
+					<th><%=members.HFirstName%></th>
+					<td><%=members.HWork%></td>
+				</tr>
+				<tr>
+					<th><%=members.WFirstName%></th>
+					<td><%=members.WWork%></td>
+				</tr>
+			</table>
+
+		<br><h2>Hobbies</h2>
+			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+				<tr>
+					<th><%=members.HFirstName%></th>
+					<td><%=members.HHobbies%></td>
+				</tr>
+				<tr>
+					<th><%=members.WFirstName%></th>
+					<td><%=members.WHobbies%></td>
+				</tr>
+			</table>
+		</form>
+	</body>
 </html>

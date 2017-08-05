@@ -5,94 +5,76 @@
 	</head>
 		<body>
 	<form action="/WardForm2" method="POST">
-	    <center>
+	    
+	    	<div id="top">
 	 		 <h1>Provo Married Student 21st Ward Move-In Sheet</h1>
-				<h2><a href="https://www.lds.org/maps/meetinghouses/@40.241987,-111.657332,16s&id=ward.studentmarried:79057">Click here to check the ward boundaries! <br></h2><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Logo_of_the_Church_of_Jesus_Christ_of_Latter-day_Saints.svg/2000px-Logo_of_the_Church_of_Jesus_Christ_of_Latter-day_Saints.svg.png" id="churchLogo"></a>
-					
+	 		</div>
+	 		<div id="boundaries">
+				<h3><a href="https://www.lds.org/maps/meetinghouses/@40.241987,-111.657332,16s&id=ward.studentmarried:79057">Click here to check the ward boundaries </a></h3>
+			</div>
 					<h2>General Information</h2>
 						<p>
 
-						</center>
-						<a href="/index.ejs" class="LoginLink">Click here</a>
-						<center>
+						<a href="/index" class="LoginLink">View List of Members</a>
+						
 								<div>
-								<label for="LASTNAME"> Family Last Name: </label>
-								<input id="LASTNAME" type="text" name="LastName" required align="right">
+								<input id="LASTNAME" type="text" name="LastName" placeholder="Family Last Name" required align="right">
 								</p>
 								</div>
 
 								<div>
 								<p>
-								<label for="WNAME">Wife's First Name: </label>
-								<input id="WNAME" type="text" name="WFirstName">
+								<input id="WNAME" type="text" name="WFirstName" placeholder="Wife's First Name">
 								</p>
 								</div>
 
 								<div>
 								<p>
-								<label for="HNAME"> Husband's First Name: </label>
-								<input id="HNAME" type="text" name="HFirstName" required>
+								<input id="HNAME" type="text" name="HFirstName" placeholder="Husband's First Name" required>
 								</p>
 								</div>
 
 								<div>
 								<p>
-								<label for="MOVEINDATE">Ward Entrance Date: </label>
-								<input id="MOVEINDATE" type="date" name="MoveinDate" placeholder="MoveinDate" align="right" required>
+								<input id="MOVEINDATE" type="text" name="MoveinDate" align="right" placeholder="Ward Exntrance Date" onfocus="(this.type='date')" required>
 								</p>
 								</div>
 
 								<div>
 								<p>
-								<label for="EXPECTEDEXIT">Expected Ward Exit Date</label>
-								<input id="EXPECTEDEXIT" type="date" name="ExpectedExit">
+								<input id="EXPECTEDEXIT" type="text" placeholder="How long do you plan on being in the ward?"name="ExpectedExit">
 								</p>
 								</div> 
-
-								<h2>Children</h2>
-								<div>
-								<p>
-								<label for="Children">Do you have children?</label><br>
-								<label for="yes">Yes </label>
-								<input name="Children" id="yes" type="radio" value="yes">
-								<label for="no">No </label>
-								<input name="Children" id="no" type="radio" value="no">
-								</p>
-								</div>
 
 								<h2>Mission</h2>
 								<div>
 									<p>
-										<label for="HMission">Husband's Mission: </label>
-										<input type="text" name="HMission" id="HMission">
+										<input type="text" name="HMission" placeholder="Husband's Mission" id="HMission">
 									</p>
 								</div>
 								<div>
 									<p>
-										<label for="WMission">Wife's Mission:</label>
-										<input type="text" name="WMission" id="WMission">
+										<input type="text" name="WMission" placeholder="Wife's Mission" id="WMission">
 									</p>
 								</div>
 
 								<h2>Previous Callings</h2>
 								<div>
 									<p>
-										<label for="HPrevCalling">Husband's Previous Calling: </label>
-										<input type="text" id="HPrevCalling" name="HPrevCalling">
+										<input type="text" id="HPrevCalling" placeholder="Husband's Previous Callings"name="HPrevCalling">
 									</p>
 								</div>
 
 								<div>
 									<p>
-										<label for="WPrevCalling">Wife's Previous Calling: </label>
-										<input type="text" id="WPrevCalling" name="WPrevCalling">
+										<input type="text" id="WPrevCalling" placeholder="Wife's Previous Callings" name="WPrevCalling">
 									</p>
 								</div>
 
 								<h2>Musical Abilities</h2>
-								<p>
+								
 									<h4>Rate how musical you are.</h4>
-								</p>
+								
 								<div id="HMusicTable">
 										<h5 id="HusbandMusic">Husband:</h5>
 										<table>
@@ -106,36 +88,36 @@
 											</tr>
 											<tr>	
 												<td>Singing</td>
-												<td><input type="radio" value="Not Vocal" id="1" name="HVocalAbilities"></td>										
-												<td><input type="radio" value="Somewhat Vocal" id="2" name="HVocalAbilities"></td>												
-												<td><input type="radio" value="Good Vocally" id="3" name="HVocalAbilities"></td>
-												<td><input type="radio" value="Vocal" id="4" name="HVocalAbilities"></td>
-												<td><input type="radio" value="Very Vocal" id="5" name="HVocalAbilities"></td>
+												<td><input type="radio" value="1-Not Vocal" id="1" name="HVocalAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat Vocal" id="2" name="HVocalAbilities"></td>												
+												<td><input type="radio" value="3-Good Vocally" id="3" name="HVocalAbilities"></td>
+												<td><input type="radio" value="4-" id="4" name="HVocalAbilities"></td>
+												<td><input type="radio" value="5 - Very Vocal" id="5" name="HVocalAbilities"></td>
 
 											</tr>
 												<tr>	
 												<td>Piano</td>
-												<td><input type="radio" value="No Piano" id="1" name="HPianoAbilities"></td>										
-												<td><input type="radio" value="Somewhat Piano" id="2" name="HPianoAbilities"></td>												
-												<td><input type="radio" value="Good Piano" id="3" name="HPianoAbilities"></td>
-												<td><input type="radio" value="Plays Piano" id="4" name="HPianoAbilities"></td>
-												<td><input type="radio" value="Very good piano" id="5" name="HPianoAbilities"></td>
+												<td><input type="radio" value="1-No Piano" id="1" name="HPianoAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat Piano" id="2" name="HPianoAbilities"></td>												
+												<td><input type="radio" value="3-Good Piano" id="3" name="HPianoAbilities"></td>
+												<td><input type="radio" value="4-Plays Piano" id="4" name="HPianoAbilities"></td>
+												<td><input type="radio" value="5-Very good piano" id="5" name="HPianoAbilities"></td>
 											</tr>
 												<tr>	
 												<td>Organ</td>
-												<td><input type="radio" value="No Organ" id="1" name="HOrganAbilities"></td>										
-												<td><input type="radio" value="Somewhat Organ" id="2" name="HOrganAbilities"></td>												
-												<td><input type="radio" value="Plays the Organ" id="3" name="HOrganAbilities"></td>
-												<td><input type="radio" value="Good at Organ" id="4" name="HOrganAbilities"></td>
-												<td><input type="radio" value="Very good at Organ" id="5" name="HOrganAbilities"></td>
+												<td><input type="radio" value="1-No Organ" id="1" name="HOrganAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat Organ" id="2" name="HOrganAbilities"></td>												
+												<td><input type="radio" value="3-Plays the Organ" id="3" name="HOrganAbilities"></td>
+												<td><input type="radio" value="4-Good at Organ" id="4" name="HOrganAbilities"></td>
+												<td><input type="radio" value="5-Very good at Organ" id="5" name="HOrganAbilities"></td>
 											</tr>
 												<tr>	
 												<td>Conducting</td>
-												<td><input type="radio" value="No Conducting" id="1" name="HConductingAbilities"></td>										
-												<td><input type="radio" value="Somewhat conducting" id="2" name="HConductingAbilities"></td>										
-												<td><input type="radio" value="Can conduct" id="3" name="HConductingAbilities"></td>
-												<td><input type="radio" value="Good at conducting" id="4" name="HConductingAbilities"></td>
-												<td><input type="radio" value="Very good at conducting" id="5" name="HConductingAbilities"></td>
+												<td><input type="radio" value="1-No Conducting" id="1" name="HConductingAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat conducting" id="2" name="HConductingAbilities"></td>										
+												<td><input type="radio" value="3-Can conduct" id="3" name="HConductingAbilities"></td>
+												<td><input type="radio" value="4-Good at conducting" id="4" name="HConductingAbilities"></td>
+												<td><input type="radio" value="5-Very good at conducting" id="5" name="HConductingAbilities"></td>
 											</tr>
 										</table>
 								</div>
@@ -153,36 +135,36 @@
 											</tr>
 											<tr>	
 												<td>Singing</td>
-												<td><input type="radio" value="Not Vocal" id="1" name="WVocalAbilities"></td>										
-												<td><input type="radio" value="Somewhat Vocal" id="2" name="WVocalAbilities"></td>												
-												<td><input type="radio" value="Good Vocally" id="3" name="WVocalAbilities"></td>
-												<td><input type="radio" value="Vocal" id="4" name="WVocalAbilities"></td>
-												<td><input type="radio" value="Very Vocal" id="5" name="WVocalAbilities"></td>
+												<td><input type="radio" value="1-Not Vocal" id="1" name="WVocalAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat Vocal" id="2" name="WVocalAbilities"></td>												
+												<td><input type="radio" value="3-Good Vocally" id="3" name="WVocalAbilities"></td>
+												<td><input type="radio" value="4-Vocal" id="4" name="WVocalAbilities"></td>
+												<td><input type="radio" value="5-Very Vocal" id="5" name="WVocalAbilities"></td>
 
 											</tr>
 												<tr>	
 												<td>Piano</td>
-												<td><input type="radio" value="No Piano" id="1" name="WPianoAbilities"></td>										
-												<td><input type="radio" value="Somewhat Piano" id="2" name="WPianoAbilities"></td>												
-												<td><input type="radio" value="Good Piano" id="3" name="WPianoAbilities"></td>
-												<td><input type="radio" value="Plays Piano" id="4" name="WPianoAbilities"></td>
-												<td><input type="radio" value="Very good piano" id="5" name="WPianoAbilities"></td>
+												<td><input type="radio" value="1-No Piano" id="1" name="WPianoAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat Piano" id="2" name="WPianoAbilities"></td>												
+												<td><input type="radio" value="3-Good Piano" id="3" name="WPianoAbilities"></td>
+												<td><input type="radio" value="4-Plays Piano" id="4" name="WPianoAbilities"></td>
+												<td><input type="radio" value="5-Very good piano" id="5" name="WPianoAbilities"></td>
 											</tr>
 												<tr>	
 												<td>Organ</td>
-												<td><input type="radio" value="No Organ" id="1" name="WOrganAbilities"></td>										
-												<td><input type="radio" value="Somewhat Organ" id="2" name="WOrganAbilities"></td>												
-												<td><input type="radio" value="Plays the Organ" id="3" name="WOrganAbilities"></td>
-												<td><input type="radio" value="Good at Organ" id="4" name="WOrganAbilities"></td>
-												<td><input type="radio" value="Very good at Organ" id="5" name="WOrganAbilities"></td>
+												<td><input type="radio" value="1-No Organ" id="1" name="WOrganAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat Organ" id="2" name="WOrganAbilities"></td>												
+												<td><input type="radio" value="3-Plays the Organ" id="3" name="WOrganAbilities"></td>
+												<td><input type="radio" value="4-Good at Organ" id="4" name="WOrganAbilities"></td>
+												<td><input type="radio" value="5-Very good at Organ" id="5" name="WOrganAbilities"></td>
 											</tr>
 												<tr>	
 												<td>Conducting</td>
-												<td><input type="radio" value="No Conducting" id="1" name="WConductingAbilities"></td>										
-												<td><input type="radio" value="Somewhat conducting" id="2" name="WConductingAbilities"></td>										
-												<td><input type="radio" value="Can conduct" id="3" name="WConductingAbilities"></td>
-												<td><input type="radio" value="Good at conducting" id="4" name="WConductingAbilities"></td>
-												<td><input type="radio" value="Very good at conducting" id="5" name="WConductingAbilities"></td>
+												<td><input type="radio" value="1-No Conducting" id="1" name="WConductingAbilities"></td>										
+												<td><input type="radio" value="2-Somewhat conducting" id="2" name="WConductingAbilities"></td>										
+												<td><input type="radio" value="3-Can conduct" id="3" name="WConductingAbilities"></td>
+												<td><input type="radio" value="4-Good at conducting" id="4" name="WConductingAbilities"></td>
+												<td><input type="radio" value="5-Very good at conducting" id="5" name="WConductingAbilities"></td>
 											</tr>
 										</table>
 								</div>
@@ -190,51 +172,46 @@
 							<h2>Education</h2>
 								<div>
 									<p>
-										<label for="HSchool">Husband's School: </label>
-										<input type="text" id="HSchool" name="HSchool">
+										<input type="text" id="HSchool" placeholder="Husband's School" name="HSchool">
 									</p>
 								</div>
 
 								<div>
 									<p>
-										<label for="WSchool">Wife's School: </label>
-										<input type="text" id="WSchool" name="WSchool">
+										<input type="text" id="WSchool" placeholder="Wife's School" name="WSchool">
 									</p>
 								</div>
 
 
 								<div>
 									<p>
-										<label for="HMajor">Husband's Major </label>
-										<input type="text" id="HPrevCalling" name="HPrevCalling">
+										<input type="text" id="HPrevCalling" placeholder="Husband's Major" name="HMajor">
 									</p>
 								</div>
 
 								<div>
 									<p>
-										<label for="WMajor">Wife's Major: </label>
-										<input type="text" id="WMajor" name="WMajor">
+										<input type="text" id="WMajor" placeholder="Wife's Major"name="WMajor">
 									</p>
 								</div>
 
 							<h2>Work</h2>
 								<div>
 									<p>
-										<label for="HWork">Husband's Work: </label>
-										<input type="text" id="HWork" name="HWork">								
+										<input type="text" id="HWork" placeholder="Husband's Work" name="HWork">								
 									</p>
 								</div>
 
 								<div>
 									<p>
-										<label for="WWork">Wife's Work: </label>
-										<input type="text" id="WWork" name="WWork">
+										<input type="text" id="WWork" placeholder="Wife's Work" name="WWork">
 									</p>
 								</div>
 
 							<h2>Hobbies/Interests/Skills</h2>
 								<div>
 									<p>
+										
 										<textarea id="HHobbies" cols="50" rows="4" placeholder="Husband" name="HHobbies"></textarea>
 									</p>
 								</div>
@@ -245,11 +222,10 @@
 									</p>
 								</div>
 
-
+							</div>
 
 
 	<input type="submit"><br>
 	</form>
-</center>
 </body>
 </html>
