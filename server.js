@@ -2,7 +2,6 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const port = process.env.PORT || 3000
 const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
@@ -11,7 +10,10 @@ var mongoose = require('mongoose');
 var db;
 var ObjectId = require('mongodb').ObjectId;
 var schema = mongoose.Schema;
-mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`, {useMongoClient: true,})
+mongoose.connect(process.env.MONGOLAB_URI, {useMongoClient: true,})
+//mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`, {useMongoClient: true,})
+ //mongoose.connect('mongodb://maxbassett:012694mrb@ds023455.mlab.com:23455/heroku_fk7knb54', {useMongoClient: true,})
+ 
 
 var memberSchema = mongoose.Schema({
 	LastName: {type: String},
@@ -46,13 +48,14 @@ var memberSchema = mongoose.Schema({
 
 })
 var Member = mongoose.model('Member', memberSchema);
-
-mongoClient.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`,(err,database) =>{
+//process.env.MONGODB_URI
+mongoClient.connect(process.env.MONGOLAB_URI,(err,database) =>{
 		if(err) return console.log(err)
 		db=database
-		app.listen(port, () => {
-		console.log('Server running')
-	})
+	var server = app.listen(process.env.PORT || 3000, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
 })
 
 app.set('view engine', 'ejs')
