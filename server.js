@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var db;
 var ObjectId = require('mongodb').ObjectId;
 var schema = mongoose.Schema;
-mongoose.connect(process.env.MONGOLAB_URI, {useMongoClient: true,})
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true,})
 //mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`, {useMongoClient: true,})
  //mongoose.connect('mongodb://maxbassett:012694mrb@ds023455.mlab.com:23455/heroku_fk7knb54', {useMongoClient: true,})
  
@@ -49,7 +49,7 @@ var memberSchema = mongoose.Schema({
 })
 var Member = mongoose.model('Member', memberSchema);
 //process.env.MONGODB_URI
-mongoClient.connect(process.env.MONGOLAB_URI,(err,database) =>{
+mongoClient.connect(process.env.MONGODB_URI,(err,database) =>{
 		if(err) return console.log(err)
 		db=database
 	var server = app.listen(process.env.PORT || 3000, function () {
