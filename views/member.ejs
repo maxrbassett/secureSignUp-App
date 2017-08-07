@@ -17,9 +17,26 @@
 		<br><h2>General Information</h2>
 		<table id="GeneralTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 			<tr>
+				<th><%=members.HFirstName%>'s Phone Number</th>
+				<td><%=members.HPhone%></td>
+			</tr>
+			<tr>
+				<th><%=members.WFirstName%>'s Phone Number</th>
+				<td><%=members.WPhone%></td>
+			</tr>
+			<tr>
+				<th><%=members.HFirstName%>'s Birthday</th>
+				<td><%=members.HBirthday%></td>
+			</tr>	
+			<tr>
+				<th><%=members.WFirstName%>'s Birthday</th>
+				<td><%=members.WBirthday%></td>
+			</tr>
+			<tr>
 				<th>Ward Move in Date</th>
 				<td><%=members.MoveinDate%></td>
 			</tr>
+			<tr>
 				<th>Plan on staying in the ward</th>
 				<td><%=members.ExpectedExit%></td>
 			</tr>
@@ -35,18 +52,6 @@
 				<td><%=members.WMission%></th>
 			</tr>
 		</table>
-
-		<br><strong><h2>Previous Callings</h2></strong>
-			<table id="PrevCallingTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
-				<tr>
-					<th><%=members.HFirstName%></th>
-					<td><%=members.HPrevCalling%></td>
-				</tr>
-				<tr>
-					<th><%=members.WFirstName%></th>
-					<td><%=members.WPrevCalling%></td>
-				</tr>
-			</table>
 
 		<br><strong><h2><%=members.HFirstName%>'s Musical Abilities</h2></strong>
 			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">

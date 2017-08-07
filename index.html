@@ -9,14 +9,13 @@
 	    	<div id="top">
 	 		 <h1>Provo Married Student 21st Ward Move-In Sheet</h1>
 	 		</div>
-	 		<div id="boundaries">
-				<h3><a href="https://www.lds.org/maps/meetinghouses/@40.241987,-111.657332,16s&id=ward.studentmarried:79057">Click here to check the ward boundaries </a></h3>
-			</div>
+	 		<div id= "WardB">
+	 		<h6><u>Ward Boundaries</u></h6>
+			<img id="boundPhoto" src="https://lh3.googleusercontent.com/j78xKaeeBlnk0XVi-a3bUOS0IEnYyWFO6qkO3OgEUfXtnId8Lh3aqP9UyDfBozLGJc9eFCtrMV63N_FHWWqPTX3sIM3wNdiUWVuxsEBVOLuNykEQspete0D-I9C5S9dIksFUiNL4IliHoxTGRfXDgt49BwJeT26YZmaR5WvGcLKPCAE7jDRP4b7Zv0BktKYCemV2VG87K8FPOGa8t9tN2M99JlEqqkv-nYWyK4BUfPGOekVXjjrUfY96jLX9b1NrtUyUkh_xG_iOsJr8fkISbgZn4lb2BeFHOGXJVtSGcGecs6cLrXZtnLAzvz5h89URHrhq9TjoK-4LvAnUPiblq4T7oZNaMbQmEiAF7ojcw4LLBgMsQeyV7wMUHck4Agxb6rmcu22-4wU3XUw8w39r1uX6hNK54PQzD-tUG0w6mPb81us3EHvWLS_bQFUBL4Y2uoqrRETaxDXk4POZBCYIqEekCDdg75uOc95GgFw-AMkMDu1OsH7Nn1UtWWzJekw0GCqXTvAUHWWZRS3X0Akdw5_3NmlS-anv4ln414EOZH-GkqLzn4KTKeY0xTtRg-A6_ifYPkr0ii8_rkN8g9UTevOla-qZDid522SHyulxUuM742xiITNTXxxRuOcklRcW0uV2a80OfmS46a-LmaZ3I0CH6KBFJNC-gx25C0Pi_kSkzw=w384-h666-no">
+		</div>
 					<h2>General Information</h2>
 						<p>
-
 						<a href="/index" class="LoginLink">View List of Members</a>
-						
 								<div>
 								<input id="LASTNAME" type="text" name="LastName" placeholder="Family Last Name" required align="right">
 								</p>
@@ -35,16 +34,41 @@
 								</div>
 
 								<div>
-								<p>
-								<input id="MOVEINDATE" type="text" name="MoveinDate" align="right" placeholder="Ward Exntrance Date" onfocus="(this.type='date')" required>
-								</p>
+									<p>
+										<input id="HPhone" type="text" name="HPhone" placeholder="Husband's Phone Number">
+									</p>
 								</div>
 
 								<div>
-								<p>
-								<input id="EXPECTEDEXIT" type="text" placeholder="How long do you plan on being in the ward?"name="ExpectedExit">
-								</p>
+									<p>
+										<input id="WPhone" type="text" name="WPhone" placeholder="Wife's Phone Number">
+									</p>
+								</div>
+
+								<div>
+									<p>
+										<input id="HBirthday" type="text" name="HBirthday" placeholder="Husband's Birthday" onfocus="(this.type='date')">
+									</p>
+								</div>
+
+								<div>
+									<p>
+										<input id="WBirthday" type="text" name="WBirthday" placeholder="Wife's Birthday" onfocus="(this.type='date')">
+									</p>
+								</div>
+
+								<div>
+									<p>
+										<input id="MOVEINDATE" type="text" name="MoveinDate" align="right" placeholder="Ward Exntrance Date" onfocus="(this.type='date')">
+									</p>
+								</div>
+
+								<div>
+									<p>
+										<input id="EXPECTEDEXIT" type="text" placeholder="How long do you plan on being in the ward?"name="ExpectedExit">
+									</p>
 								</div> 
+ 
 
 								<h2>Mission</h2>
 								<div>
@@ -58,18 +82,6 @@
 									</p>
 								</div>
 
-								<h2>Previous Callings</h2>
-								<div>
-									<p>
-										<input type="text" id="HPrevCalling" placeholder="Husband's Previous Callings"name="HPrevCalling">
-									</p>
-								</div>
-
-								<div>
-									<p>
-										<input type="text" id="WPrevCalling" placeholder="Wife's Previous Callings" name="WPrevCalling">
-									</p>
-								</div>
 
 								<h2>Musical Abilities</h2>
 								
@@ -90,9 +102,9 @@
 												<td>Singing</td>
 												<td><input type="radio" value="1-Not Vocal" id="1" name="HVocalAbilities"></td>										
 												<td><input type="radio" value="2-Somewhat Vocal" id="2" name="HVocalAbilities"></td>												
-												<td><input type="radio" value="3-Good Vocally" id="3" name="HVocalAbilities"></td>
-												<td><input type="radio" value="4-" id="4" name="HVocalAbilities"></td>
-												<td><input type="radio" value="5 - Very Vocal" id="5" name="HVocalAbilities"></td>
+												<td><input type="radio" value="3-Can sing" id="3" name="HVocalAbilities"></td>
+												<td><input type="radio" value="4-Good at singing" id="4" name="HVocalAbilities"></td>
+												<td><input type="radio" value="5 - Excellent at singing" id="5" name="HVocalAbilities"></td>
 
 											</tr>
 												<tr>	
@@ -168,7 +180,7 @@
 											</tr>
 										</table>
 								</div>
-
+<div id="restofPage">
 							<h2>Education</h2>
 								<div>
 									<p>
@@ -222,10 +234,10 @@
 									</p>
 								</div>
 
-							</div>
-
+							
 
 	<input type="submit"><br>
+</div>
 	</form>
 </body>
 </html>
