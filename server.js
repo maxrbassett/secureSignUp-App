@@ -76,7 +76,7 @@ app.post('/WardForm2', (req, res) => {
 })
 
 app.get('/ThankYou', (req, res) => {
-	res.sendFile('C:/Users/maxrb/Documents/WardForm2' + '/ThankYou.html')
+	res.sendFile(path.resolve(__dirname + '/ThankYou.html'));
 })
 
 

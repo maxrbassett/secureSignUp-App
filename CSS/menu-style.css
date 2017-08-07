@@ -71,17 +71,19 @@ textarea {
 }
 #HusbandMusic {
 	position: relative;
-	top: 20px
+	top: 60px;
+	font-size: 20px;
+
 }
 #WifeMusic {
 	position: relative;
-	top: 20px;
+	top: 60px;
+	font-size: 20px;
 }
 #HMusicTable {
 	position: relative;
 	top: -35px;
-		width: 20px;
-
+	width: 20px;
 }
 #WMusicTable {
 	position: relative;
