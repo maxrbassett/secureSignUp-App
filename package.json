@@ -1,6 +1,9 @@
 {
   "name": "wardform2",
   "version": "1.0.0",
+   "engines": {
+    "node": "6.11.1"
+  },
   "description": "Remake of wardform",
   "main": "index.js",
   "scripts": {
@@ -14,7 +17,6 @@
     "express": "^4.15.3",
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.5",
-    "node": "^6.11.1",
     "ejs": "^3.10.10"
   }
 }
