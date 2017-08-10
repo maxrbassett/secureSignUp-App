@@ -146,12 +146,12 @@ textarea{
 	top: -100px;
 }
 input[type=submit] {
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 500px;
     background-color: #004c8c;
     color: rgb(220,220,220);
     border: 1px solid #004c8c;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     
 }
