@@ -7,13 +7,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
 
-var fs = require('fs');
+// var fs = require('fs');
 
-var thumbnailPluginLib = require('mongoose-thumbnail');
-var thumbnailPlugin = thumbnailPluginLib.thumbnailPlugin;
-var make_upload_to_model = thumbnailPluginLib.make_upload_to_model;
-var uploads_base = path.join(__dirname, "uploads");
-var uploads = path.join(uploads_base, "u");
+// var thumbnailPluginLib = require('mongoose-thumbnail');
+// var thumbnailPlugin = thumbnailPluginLib.thumbnailPlugin;
+// var make_upload_to_model = thumbnailPluginLib.make_upload_to_model;
+// var uploads_base = path.join(__dirname, "uploads");
+// var uploads = path.join(uploads_base, "u");
 
 var assert = require('assert');
 var mongoose = require('mongoose');
@@ -57,15 +57,15 @@ var memberSchema = mongoose.Schema({
 
 	 img: { data: Buffer, contentType: String }
 });
-memberSchema.plugin(thumbnailPlugin, {
-	name: "photo",
-    format: "png",
-    size: 80,
-    inline: false,
-    save: true,
-    upload_to: make_upload_to_model(uploads, 'photos'),
-    relative_to: uploads_base
-});
+// memberSchema.plugin(thumbnailPlugin, {
+// 	name: "photo",
+//     format: "png",
+//     size: 80,
+//     inline: false,
+//     save: true,
+//     upload_to: make_upload_to_model(uploads, 'photos'),
+//     relative_to: uploads_base
+// });
 
 var Member = mongoose.model('Member', memberSchema);
 
@@ -90,15 +90,15 @@ app.get('/', (req, res) => {
 })
 
 
-app.post('/upload/:_id/:_img', function(req, res){
-	var id = req.params._id;
-	var picture = req.params._img;
-	Member.findById(id, function(err, doc){
-		doc.img.data = fs.readFileSync(__dirname + picture);
-		doc.img.contentType = 'image/png';
-		db.collection('members').save(doc.img)
-		})
-	})
+// app.post('/upload/:_id/:_img', function(req, res){
+// 	var id = req.params._id;
+// 	var picture = req.params._img;
+// 	Member.findById(id, function(err, doc){
+// 		doc.img.data = fs.readFileSync(__dirname + picture);
+// 		doc.img.contentType = 'image/png';
+// 		db.collection('members').save(doc.img)
+// 		})
+// 	})
 
 	// var id = req.params._id;
 	// Member.findById(id, function(err, doc){
