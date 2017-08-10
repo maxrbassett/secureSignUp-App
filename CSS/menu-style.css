@@ -64,15 +64,7 @@ input[type="date"]{
 #Address{
 	text-indent: 10px;
 }
-#HBirthday{
-	padding-right: 45px;
-}
-#WBirthday{
-	padding-right: 67px;
-}
-#MOVEINDATE{
-	padding-right: 87px;
-}
+
 input[type="radio"]{
 	width:40px;
 	height: 30px;
@@ -152,11 +144,11 @@ textarea{
 	top: -100px;
 }
 input[type=submit] {
-    width: 10%;
+    width: 20%;
     background-color: #004c8c;
     color: rgb(220,220,220);
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 24px 20px;
+    margin: 20px;
     border: 1px solid #004c8c;
     border-radius: 10px;
     cursor: pointer;
