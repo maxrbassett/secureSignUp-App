@@ -15,21 +15,3 @@ function search() {
       }
   }
 
-var upload_mem = document.getElementById()
-var id = members
-  upload_mem.addEventListener('click', function () {
-  fetch('members', {
-    method: 'get',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      'name': 'Darth Vader',
-      'quote': 'I find your lack of faith disturbing.'
-    })
-  })
-  .then(response => {
-    if (response.ok) return response.json()
-  })
-  .then(data => {
-    console.log(data)
-  })
-})

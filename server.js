@@ -1,16 +1,27 @@
 
 require('dotenv').config();
 const express = require('express');
+const fileUpload= require('express-fileupload');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
+
+var fs = require('fs');
+
+var thumbnailPluginLib = require('mongoose-thumbnail');
+var thumbnailPlugin = thumbnailPluginLib.thumbnailPlugin;
+var make_upload_to_model = thumbnailPluginLib.make_upload_to_model;
+var uploads_base = path.join(__dirname, "uploads");
+var uploads = path.join(uploads_base, "u");
+
 var assert = require('assert');
 var mongoose = require('mongoose');
 var db;
 var ObjectId = require('mongodb').ObjectId;
 var schema = mongoose.Schema;
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true,})
+
 //mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`, {useMongoClient: true,})
  //mongoose.connect('mongodb://maxbassett:012694mrb@ds023455.mlab.com:23455/heroku_fk7knb54', {useMongoClient: true,})
  
@@ -42,14 +53,23 @@ var memberSchema = mongoose.Schema({
 	HWork: {type:String},
 	WWork: {type: String},
 	HHobbies: {type: String},
-	WHobbies: {type: String}
+	WHobbies: {type: String},
 
+	 img: { data: Buffer, contentType: String }
+});
+memberSchema.plugin(thumbnailPlugin, {
+	name: "photo",
+    format: "png",
+    size: 80,
+    inline: false,
+    save: true,
+    upload_to: make_upload_to_model(uploads, 'photos'),
+    relative_to: uploads_base
+});
 
-
-
-})
 var Member = mongoose.model('Member', memberSchema);
-//process.env.MONGODB_URI
+
+
 mongoClient.connect(process.env.MONGODB_URI,(err,database) =>{
 		if(err) return console.log(err)
 		db=database
@@ -59,6 +79,7 @@ mongoClient.connect(process.env.MONGODB_URI,(err,database) =>{
   });
 })
 
+app.use(fileUpload());
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -67,6 +88,24 @@ app.use(express.static(__dirname));
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname + '/index.html'));
 })
+
+
+app.post('/upload/:_id/:_img', function(req, res){
+	var id = req.params._id;
+	var picture = req.params._img;
+	Member.findById(id, function(err, doc){
+		doc.img.data = fs.readFileSync(__dirname + picture);
+		doc.img.contentType = 'image/png';
+		db.collection('members').save(doc.img)
+		})
+	})
+
+	// var id = req.params._id;
+	// Member.findById(id, function(err, doc){
+	// 	doc.photo.name = req
+	// 	console.log(doc.photo.name)
+	// })	
+ 
 
 app.post('/WardForm2', (req, res) => {
 	db.collection('members').save(req.body, (err, result) => {
@@ -98,7 +137,49 @@ app.get('/member/:_id', (req,res) => {
     });
 })
 
+app.get('/pianoMembers', (req,res) => {
+	db.collection('members').find({$or: [{HPianoAbilities: "4-Plays Piano"}, {HPianoAbilities: "5-Very good piano"}, {WPianoAbilities: "4-Plays Piano"}, {WPianoAbilities:"5-Very good piano"}]
+	}).toArray(function(err, result) {
+		if(err) return console.log(err)
+			res.render('index.ejs', {members: result})
+	})
+})
 
+app.get('/organMembers', (req,res) => {
+	db.collection('members').find({$or: [{HOrganAbilities: "4-Good at Organ"}, {HOrganAbilities: "5-Very good at Organ"}, {WOrganAbilities: "4-Good at Organ"}, {WOrganAbilities:"5-Very good at Organ"}]
+	}).toArray(function(err, result) {
+		if(err) return console.log(err)
+			res.render('index.ejs', {members: result})
+	})
+})
 
+app.get('/conductingMembers', (req,res) => {
+	db.collection('members').find({$or: [{HConductingAbilities: "4-Good at conducting"}, {HConductingAbilities: "5-Very good at conducting"}, {WConductingAbilities: "4-Good at conducting"}, {WConductingAbilities:"5-Very good at conducting"}]
+	}).toArray(function(err, result) {
+		if(err) return console.log(err)
+			res.render('index.ejs', {members: result})
+	})
+})
 
+app.get('/singingMembers', (req,res) => {
+	db.collection('members').find({$or: [{HVocalAbilities: "4-Good at singing"}, {HVocalAbilities: "5 - Excellent at singing"}, {WVocalAbilities: "4-Good at singing"}, {WVocalAbilities:"5-Very Vocal"}]
+	}).toArray(function(err, result) {
+		if(err) return console.log(err)
+			res.render('index.ejs', {members: result})
+	})
+})
+
+app.get('/delete', (req,res) => {
+	db.collection('members').find().toArray(function(err, result) {
+  		if (err) return console.log(err)
+  		res.render('deletePage.ejs', {members: result})
+	})
+})
+
+app.get('/deleteMembers/:_id', (req, res) => {
+	var id = req.params._id;
+	Member.findOneAndRemove({'_id' : id}, function(err, doc){
+		res.redirect('/delete');
+	})
+})
 

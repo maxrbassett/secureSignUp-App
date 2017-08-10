@@ -7,6 +7,7 @@
 }
 body{
     background-color: #0277bd;
+    padding-bottom: 200px;
 
 }
 ::-webkit-input-placeholder{
@@ -32,7 +33,7 @@ body{
     padding: 0;
     }
 
-    #memberlist li a {
+    #memberlist li {
     border: 1px solid rgb(40,40,40); /* Add a border to all links */
     border-radius: 5px;
     width: 25%;
@@ -53,13 +54,13 @@ body{
     #deleteButton {
         position: absolute;
         right: 20px;
-        top: 10px;
-        background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/ultra-glossy-silver-buttons-icons-business/087927-ultra-glossy-silver-button-icon-business-trashcan3.png");
-        background-size: 170%;
+        top: 0px;
+        background-image: url("http://www.pngmart.com/files/3/Left-Arrow-PNG-Photos.png");
         background-position: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 100%; 
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100px;
+        height: 100px;
         border: 1px solid #004c8c;
     }
 .dropbtn{
@@ -102,4 +103,39 @@ body{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+#deleteBar{
+    font-size: 30px;
+    background-color: #7f0000;
+    position: fixed;
+    left: 300px;
+    padding-left: 275px;
+    padding-right: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+}
+#deletebtn2{
+    color: rgb(220,220,220);
+    font-family: "Arial Black", Gadget, sans-serif;
+    background-color: #7f0000;
+    font-size: 27px;
+    border: none;
+     background-image: url("http://www.pngmart.com/files/3/Delete-Button-PNG-Image.png");
+        background-size: 170%;
+        background-position: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        display: block;
+        position: relative;
+        left: 260px;
+        top: 0px;
 
+}
+input[type="checkbox"]{
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 50%;
+    border: 1px solid black;
+
+}

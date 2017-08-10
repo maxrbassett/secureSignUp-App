@@ -2,16 +2,15 @@
 <head>
   <title>New Member Info</title>
 
-<link href="CSS/index-style.css" rel="stylesheet" type="text/css">
+<link href="CSS/deletePage-style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
   <div id="top">
   <h1>List of Members</h1>
+  <a href="/index" id="deleteButton"></a>
 </div><br>
-
-<a id="deleteButton" href="/delete"></a>
     <input type="text" onkeyup="search()" id="myinput" placeholder="Search..." title="Type in a name">
     <div class="dropdown">
       <button class="dropbtn">Sort Members</button>
@@ -25,10 +24,16 @@
     </div>
     <h2><ul id="memberlist">
           <% for (var i=0; i<members.length; i++) {%>
+            <form action="/deleteMembers/<%=members[i]._id%>">
             <li>
-             <a href="/member/<%=members[i]._id%>" id="members"><%=members[i].LastName%></a>
+              <label for="deleteMems<%=i%>"><%=members[i].LastName%></label>
+              <input type="submit" value="" id="deletebtn2">
             </li>
+          </form>
           <% } %>
       </ul></h2>
+      <!-- <div id="deleteBar">
+      <a href="/deleteMembers" id="deletebtn2" >Delete</a>
+    </div> -->
  </body>
 </html>

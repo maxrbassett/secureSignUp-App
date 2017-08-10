@@ -7,14 +7,22 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	<div id="top_bar">
-		<img id="img" src="/CSS/blank-profile-picture-973460_1280.png" height="300" width="300">
+	<img src="http://jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2.jpeg" id="img">
+	<!-- <form name="uploadForm" onsubmit="return OnSubmitForm()" method='post'>
+		<input id="chooseFile" type="file" name="sampleFile" onchange="previewFile()">
+		<input type="submit" value="upload">
+		<img src="">
+		<%=members.img.data%>
+	</form>
+ -->
+
+
+
 	<div id="fam">
 		<h3 id="FirstNames"><%=members.HFirstName%> and <%=members.WFirstName%></h3>
 		<h1 id="LastName"><%=members.LastName%></h1>
 	</div>
-	</div> <!-- This is to end the top bar div -->
-		<br><h2>General Information</h2>
+		<br><br><br><br><h2>General Information</h2>
 		<table id="GeneralTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 			<tr>
 				<th><%=members.HFirstName%>'s Phone Number</th>
@@ -23,6 +31,10 @@
 			<tr>
 				<th><%=members.WFirstName%>'s Phone Number</th>
 				<td><%=members.WPhone%></td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td><%=members.Address%></td>
 			</tr>
 			<tr>
 				<th><%=members.HFirstName%>'s Birthday</th>
@@ -135,6 +147,32 @@
 					<td><%=members.WHobbies%></td>
 				</tr>
 			</table>
+		
 		</form>
 	</body>
+	<script type="text/javascript">
+ function OnSubmitForm()
+{
+ 	var fileInput = document.getElementById("chooseFile").value.replace("C:\\fakepath\\", "")
+	document.uploadForm.action ="/upload/<%=members._id%>/" + fileInput;
+ 	return true;
+ }
+
+
+  function previewFile(){
+       var preview = document.querySelector('img'); //selects the query named img
+       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+       var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
+
+       if (file) {
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.src = "";
+       }
+  }
+	</script>
 </html>
