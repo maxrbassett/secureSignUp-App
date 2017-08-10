@@ -32,6 +32,7 @@ var memberSchema = mongoose.Schema({
 	HFirstName: {type: String},
 	HPhone: {type: String},
 	WPhone: {type: String},
+	Address: {type: String},
 	HBirthday: {type: String},
 	WBirthday: {type: String},
 	MoveinDate: {type: String},
