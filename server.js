@@ -22,7 +22,7 @@ var ObjectId = require('mongodb').ObjectId;
 var schema = mongoose.Schema;
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true,})
 
-//mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds023550.mlab.com:23550/ward-form`, {useMongoClient: true,})
+//mongoose.connect(`mongodb://bassetm:012694mrb@ds055555.mlab.com:55555/heroku_kvx8k047`, {useMongoClient: true,})
  //mongoose.connect('mongodb://maxbassett:012694mrb@ds023455.mlab.com:23455/heroku_fk7knb54', {useMongoClient: true,})
  
 
@@ -56,7 +56,6 @@ var memberSchema = mongoose.Schema({
 	HHobbies: {type: String},
 	WHobbies: {type: String},
 
-	 img: { data: Buffer, contentType: String }
 });
 // memberSchema.plugin(thumbnailPlugin, {
 // 	name: "photo",
