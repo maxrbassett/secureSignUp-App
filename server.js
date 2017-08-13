@@ -15,7 +15,6 @@ const mongoClient = require('mongodb').MongoClient;
 // var uploads_base = path.join(__dirname, "uploads");
 // var uploads = path.join(uploads_base, "u");
 
-var basicAuth = require('express-basic-auth')
 
 var assert = require('assert');
 var mongoose = require('mongoose');
