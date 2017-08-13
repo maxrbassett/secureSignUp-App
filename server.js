@@ -123,10 +123,6 @@ app.get('/ThankYou', (req, res) => {
 
 
 app.get('/index', (req,res) => {
-	app.use(basicAuth( {authorizer: myAuthorizer} ))
-	function myAuthorizer(password){
-		return password === "password";
-	}
 	
  		db.collection('members').find().toArray(function(err, result) {
   		if (err) return console.log(err)
