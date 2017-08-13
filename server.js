@@ -15,6 +15,8 @@ const mongoClient = require('mongodb').MongoClient;
 // var uploads_base = path.join(__dirname, "uploads");
 // var uploads = path.join(uploads_base, "u");
 
+var basicAuth = require('express-basic-auth')
+
 var assert = require('assert');
 var mongoose = require('mongoose');
 var db;
@@ -85,6 +87,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static(__dirname));
 
+
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname + '/index.html'));
 })
@@ -121,6 +124,11 @@ app.get('/ThankYou', (req, res) => {
 
 
 app.get('/index', (req,res) => {
+	app.use(basicAuth( {authorizer: myAuthorizer} ))
+	function myAuthorizer(password){
+		return password === "password";
+	}
+	
  		db.collection('members').find().toArray(function(err, result) {
   		if (err) return console.log(err)
   		res.render('index.ejs', {members: result})
