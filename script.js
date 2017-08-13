@@ -17,13 +17,13 @@ function search() {
 
 function passWord() {
 var testV = 1;
-var pass1 = prompt('Password',' ');
-while (testV < 6) {
+var pass1 = prompt('Please Enter Your Password',' ');
+while (testV < 3) {
 if (!pass1) 
 history.go(-1);
-if (pass1.toLowerCase() == `${process.env.password}`) {
+if (pass1.toLowerCase() == "letmein") {
 alert('You Got it Right!');
-window.open();
+window.open('protectpage.html');
 break;
 } 
 testV+=1;
