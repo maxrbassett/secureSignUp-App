@@ -15,11 +15,7 @@ function search() {
       }
   }
 
-require('dotenv').config();
-
-
 function passWord() {
-window.stop('index.ejs');
 var testV = 1;
 var pass1 = prompt('Password',' ');
 while (testV < 6) {
@@ -27,7 +23,7 @@ if (!pass1)
 history.go(-1);
 if (pass1.toLowerCase() == `${process.env.password}`) {
 alert('You Got it Right!');
-window.open('index.ejs');
+window.open();
 break;
 } 
 testV+=1;
