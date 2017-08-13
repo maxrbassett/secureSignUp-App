@@ -21,7 +21,7 @@ var pass1 = prompt('Please Enter Your Password',' ');
 while (testV < 3) {
 if (!pass1) 
 history.go(-1);
-if (pass1.toLowerCase() == `${process.env.list_password}`) {
+if (pass1.toLowerCase() == '21stward') {
 alert('You Got it Right!');
 window.open('protectpage.html');
 break;
