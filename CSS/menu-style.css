@@ -54,14 +54,15 @@ border-bottom-width: 8px;
 font-size: 14px;
 font-family: "Comic Sans MS", sans-serif;
 }
-input[type="date"]{
-	width: 200px;
-	height: 31px;
-	position: relative;
-	left: -100px;
+input[type="text"]{
+	width: 400px;
+	height: 30px;
 	border-radius: 10px;
 	border: 1px solid rgb(220,220,220);
 	background-color: rgb(220,220,220);
+	font-family: "Comic Sans MS", sans-serif;
+	text-indent: 10px;
+
 }
 #Address{
 	text-indent: 10px;

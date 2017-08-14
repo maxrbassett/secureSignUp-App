@@ -26,9 +26,20 @@
       </div>
     </div>
     <h2><ul id="memberlist">
+      <p><%=members[0].MoveinDate%></p>
           <% for (var i=0; i<members.length; i++) {%>
             <li>
              <a href="/member/<%=members[i]._id%>" id="members"><%=members[i].LastName%></a>
+             <%if(!(i+1 >= members.length)){%>
+               <%if(!members[i].MoveinDate === members[i+1].MoveinDate) {%>
+                  <p><%=members[i+1].MoveinDate%></p>
+               <%}%>
+              <%} else{ %>
+              <%console.log("I am in else with" + i)%>
+                <%if(!members[i].MoveinDate === members[i-1].MoveinDate) {%>
+                  <p><%=members[i].MoveinDate%></p>
+                <%}%>
+               <%}%>
             </li>
           <% } %>
       </ul></h2>
