@@ -36,7 +36,7 @@ var memberSchema = mongoose.Schema({
 	Address: {type: String},
 	HBirthday: {type: String},
 	WBirthday: {type: String},
-	MoveinDate: {type: String},
+	MoveinDate: {type: Date},
 	ExpectedExit: {type: String},
 	HMission: {type: String},
 	WMission: {type: String},
