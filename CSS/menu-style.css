@@ -64,9 +64,13 @@ input[type="text"]{
 	text-indent: 10px;
 
 }
+#entranceDate{
+	display: inline-block
+}
 input[type="date"]{
 	height: 30px;
 	width: 200px;
+
 	border-radius: 10px;
 	border: 1px solid rgb(220,220,220);
 	background-color: rgb(220,220,220);
@@ -74,7 +78,7 @@ input[type="date"]{
 	text-indent: 10px;
 	font-size: 12px;
 
-}
+} 
 #Address{
 	text-indent: 10px;
 }
