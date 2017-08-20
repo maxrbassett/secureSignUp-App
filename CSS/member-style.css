@@ -5,6 +5,7 @@
 	left: 30px;
 	top: 30px;
 	border-radius: 25px;
+	border: 2px solid black;
 }
 #chooseFile{
 	position: absolute;
@@ -14,12 +15,12 @@
 
 #FirstNames{
 	font-size: 50px;
-	color: rgb(220,220,220);
+	color: black;
 }
 #LastName{
 	font-size: 100px;
 	line-height: 70%;
-	color: rgb(220,220,220);
+	color: black;
 
 }
 #fam{
@@ -31,12 +32,12 @@
 body{
 	padding-bottom: 50px;
 	padding-left: 10px;
-	background-color: #0277bd;
+	background-color: white;
 }
 h2{
 	border-width: 5px;
 	font-size: 30px;
-	color: rgb(220,220,220);
+	color: black;
 }
 table{
 	border-collapse: collapse;
@@ -47,5 +48,5 @@ table, td, th{
 	border-radius: 10px;
 	text-align: center;
 	color: black;
-	background-color: rgb(220,220,220);
+	background-color: white;
 }
