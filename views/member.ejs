@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 				<th>Ward Move in Date</th>
-				<td><%=members.MoveinDate%></td>
+				<td><%=members.MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></td>
 			</tr>
 			<tr>
 				<th>Plan on staying in the ward</th>

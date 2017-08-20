@@ -64,13 +64,12 @@ input[type="text"]{
 	text-indent: 10px;
 
 }
-#entranceDate{
-	display: inline-block
-}
+/* #entranceDate{
+	display: block;
+} */
 input[type="date"]{
 	height: 30px;
 	width: 200px;
-
 	border-radius: 10px;
 	border: 1px solid rgb(220,220,220);
 	background-color: rgb(220,220,220);
