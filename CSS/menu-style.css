@@ -64,9 +64,9 @@ input[type="text"]{
 	text-indent: 10px;
 
 }
-/* #entranceDate{
+#entranceDate{
 	display: block;
-} */
+}
 input[type="date"]{
 	height: 30px;
 	width: 200px;
