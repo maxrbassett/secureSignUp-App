@@ -6,7 +6,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
-var DateOnly = require('mongoose-dateonly');
 
 // var fs = require('fs');
 
