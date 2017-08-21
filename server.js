@@ -150,35 +150,61 @@ app.get('/member/:_id', (req,res) => {
 })
 
 app.get('/pianoMembers', (req,res) => {
-	db.collection('members').find({$or: [{HPianoAbilities: "4-Plays Piano"}, {HPianoAbilities: "5-Very good piano"}, {WPianoAbilities: "4-Plays Piano"}, {WPianoAbilities:"5-Very good piano"}]
-	}).toArray(function(err, result) {
-		if(err) return console.log(err)
-			res.render('index.ejs', {members: result})
-	})
+
+	Member.find({$or: [{HPianoAbilities: "4-Plays Piano"}, {HPianoAbilities: "5-Very good piano"}, {WPianoAbilities: "4-Plays Piano"}, {WPianoAbilities:"5-Very good piano"}]
+}, function(err, users) {
+		var userMap = {};
+	
+		users.forEach(function(user) {
+		  userMap[user._id] = user;
+		});
+	
+		res.render('index.ejs', {members: users});  
+	  });
 })
 
 app.get('/organMembers', (req,res) => {
-	db.collection('members').find({$or: [{HOrganAbilities: "4-Good at Organ"}, {HOrganAbilities: "5-Very good at Organ"}, {WOrganAbilities: "4-Good at Organ"}, {WOrganAbilities:"5-Very good at Organ"}]
-	}).toArray(function(err, result) {
-		if(err) return console.log(err)
-			res.render('index.ejs', {members: result})
-	})
+
+	Member.find({$or: [{HOrganAbilities: "4-Good at Organ"}, {HOrganAbilities: "5-Very good at Organ"}, {WOrganAbilities: "4-Good at Organ"}, {WOrganAbilities:"5-Very good at Organ"}]
+}, function(err, users) {
+		var userMap = {};
+	
+		users.forEach(function(user) {
+		  userMap[user._id] = user;
+		});
+	
+		res.render('index.ejs', {members: users});  
+	  });
+	
 })
 
 app.get('/conductingMembers', (req,res) => {
-	db.collection('members').find({$or: [{HConductingAbilities: "4-Good at conducting"}, {HConductingAbilities: "5-Very good at conducting"}, {WConductingAbilities: "4-Good at conducting"}, {WConductingAbilities:"5-Very good at conducting"}]
-	}).toArray(function(err, result) {
-		if(err) return console.log(err)
-			res.render('index.ejs', {members: result})
-	})
+
+	Member.find({$or: [{HConductingAbilities: "4-Good at conducting"}, {HConductingAbilities: "5-Very good at conducting"}, {WConductingAbilities: "4-Good at conducting"}, {WConductingAbilities:"5-Very good at conducting"}]
+}, function(err, users) {
+		var userMap = {};
+	
+		users.forEach(function(user) {
+		  userMap[user._id] = user;
+		});
+	
+		res.render('index.ejs', {members: users});  
+	  });
 })
 
 app.get('/singingMembers', (req,res) => {
-	db.collection('members').find({$or: [{HVocalAbilities: "4-Good at singing"}, {HVocalAbilities: "5 - Excellent at singing"}, {WVocalAbilities: "4-Good at singing"}, {WVocalAbilities:"5-Very Vocal"}]
-	}).toArray(function(err, result) {
-		if(err) return console.log(err)
-			res.render('index.ejs', {members: result})
-	})
+
+	  Member.find({$or: [{HVocalAbilities: "4-Good at singing"}, {HVocalAbilities: "5 - Excellent at singing"}, {WVocalAbilities: "4-Good at singing"}, {WVocalAbilities:"5-Very Vocal"}]
+	}, function(err, users) {
+			var userMap = {};
+		
+			users.forEach(function(user) {
+			  userMap[user._id] = user;
+			});
+		
+			res.render('index.ejs', {members: users});  
+		  });
+	
 })
 
 app.get('/delete', (req,res) => {
