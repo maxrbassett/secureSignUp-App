@@ -6,8 +6,15 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	
 	<img src="http://jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2.jpeg" id="img">
+
+<!--	<form method="post" enctype="multipart/form-data" action="/upload/<%=members._id%>">
+	 	<img src="/profile/<%=members._id%>/image/" id="img2" name="userPhoto" >
+		 <div id="choosePhoto">
+			<input type="file" onchange="previewFile()">
+			<input type="submit" value="Upload">
+		</div>
+	</form>-->
 
 
 
@@ -15,7 +22,7 @@
 		<h3 id="FirstNames"><%=members.HFirstName%> and <%=members.WFirstName%></h3>
 		<h1 id="LastName"><%=members.LastName%></h1>
 	</div>
-		<br><br><br><br><h2>General Information</h2>
+		<br><br><u><h2 id="GI">General Information</h2></u>
 		<table id="GeneralTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 			<tr>
 				<th><%=members.HFirstName%>'s Phone Number</th>
@@ -47,7 +54,7 @@
 			</tr>
 		</table>
 	
-		<br><strong><h2>Mission</h2></strong>
+		<u><h2 id="GI">Mission</h2></u>
 		<table id="MissionTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<th><%=members.HFirstName%>'s Mission</th>
 				<td><%=members.HMission%></th>
@@ -58,7 +65,7 @@
 			</tr>
 		</table>
 
-		<br><strong><h2><%=members.HFirstName%>'s Musical Abilities</h2></strong>
+		<u><h2 id="GI"><%=members.HFirstName%>'s Musical Abilities</h2></u>
 			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th>Vocal:</th>
@@ -78,7 +85,7 @@
 				</tr>
 			</table>
 
-		<br><strong><h2><%=members.WFirstName%>'s Musical Abilities</h2></strong>
+		<u><h2 id="GI"><%=members.WFirstName%>'s Musical Abilities</h2></u>
 			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th>Vocal:</th>
@@ -98,7 +105,7 @@
 				</tr>
 			</table>
 
-		<br><strong><h2>Education</h2></strong>
+		<strong><u><h2 id="GI">Education</h2></strong></u>
 			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th id="blankSpace"> </th>
@@ -117,7 +124,7 @@
 				</tr>		
 			</table>
 
-		<br><h2>Work</h2>
+		<u><h2 id="GI">Work</h2></u>
 			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th><%=members.HFirstName%></th>
@@ -129,7 +136,7 @@
 				</tr>
 			</table>
 
-		<br><h2>Hobbies</h2>
+		<u><h2 id="GI">Hobbies</h2></u>
 			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th><%=members.HFirstName%></th>
@@ -143,10 +150,11 @@
 		
 		</form>
 	</body>
-	<!-- <script type="text/javascript">
+	 <script type="text/javascript">
+	   
 //  function OnSubmitForm()
 // {
-//  	var fileInput = document.getElementById("chooseFile").value.replace("C:\\fakepath\\", "")
+//  	var fileInput = document.getElementById("img2").value.replace("C:\\fakepath\\", "")
 // 	document.uploadForm.action ="/upload/<%=members._id%>/" + fileInput;
 //  	return true;
 //  }
@@ -167,5 +175,5 @@
 //            preview.src = "";
 //        }
 //   }
-// 	</script>-->
+ 	</script>
 </html>

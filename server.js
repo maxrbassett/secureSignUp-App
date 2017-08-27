@@ -2,14 +2,14 @@
 require('dotenv').config();
 const express = require('express');
 const fileUpload= require('express-fileupload');
-const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
+var path = require('path');
+var fs = require('file-system');
+var multer = require('multer');
 
-// var fs = require('fs');
 
-// var thumbnailPluginLib = require('mongoose-thumbnail');
 // var thumbnailPlugin = thumbnailPluginLib.thumbnailPlugin;
 // var make_upload_to_model = thumbnailPluginLib.make_upload_to_model;
 // var uploads_base = path.join(__dirname, "uploads");
@@ -56,6 +56,7 @@ var memberSchema = mongoose.Schema({
 	WWork: {type: String},
 	HHobbies: {type: String},
 	WHobbies: {type: String},
+	img: {data: Buffer, contentType: String}
 
 });
 // memberSchema.plugin(thumbnailPlugin, {
@@ -85,28 +86,42 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static(__dirname));
+app.use(multer({dest:'./uploads/'}).single('singleInputFileName'));
+
 
 
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname + '/index.html'));
 })
 
+app.get('/profile/:_id/image', function(req,res,next) {
+	var id=req.params._id;
+	console.log(id);
+	Member.findById(id, function(err,user) {
+		if (err) return next(err);
+		res.contentType(user.img.contentType);
+		res.send(user.img.data);
+	});
+  });
 
-// app.post('/upload/:_id/:_img', function(req, res){
-// 	var id = req.params._id;
-// 	var picture = req.params._img;
-// 	Member.findById(id, function(err, doc){
-// 		doc.img.data = fs.readFileSync(__dirname + picture);
-// 		doc.img.contentType = 'image/png';
-// 		db.collection('members').save(doc.img)
-// 		})
-// 	})
+// app.post('/upload',function(req,res){
+		
+// 		var newItem = new Member();
+// 		newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
+// 		newItem.img.contentType = ‘image/png’;
+// 		newItem.save();
+// 	   });
 
-	// var id = req.params._id;
-	// Member.findById(id, function(err, doc){
-	// 	doc.photo.name = req
-	// 	console.log(doc.photo.name)
-	// })	
+app.post('/upload/:_id', function(req, res){
+	Member.findById(id, function(err, doc){
+		doc.img.data = fs.readFileSync(req.files.userPhoto.path);
+		doc.img.contentType = 'image/png';
+		doc.img.save();
+		res.render('member.ejs', {members: doc});
+		})
+	})
+
+	
  
 
 app.post('/WardForm2', (req, res) => {
@@ -145,7 +160,6 @@ app.get('/member/:_id', (req,res) => {
 	Member.findById(id, function(error, doc) {
       assert.ifError(error);
       res.render('member.ejs', {members: doc})
-      doc
     });
 })
 

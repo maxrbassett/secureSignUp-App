@@ -7,6 +7,18 @@
 	border-radius: 25px;
 	border: 2px solid black;
 }
+#img2{
+	max-height: 300px;
+	max-width: 300px;
+	position: relative;
+	left: 30px;
+	top: 30px;
+}
+#choosePhoto{
+	position: absolute;
+	top: 260px;
+	left: 30px;
+}
 #chooseFile{
 	position: absolute;
 	top: 300px;
@@ -33,11 +45,15 @@ body{
 	padding-bottom: 50px;
 	padding-left: 10px;
 	background-color: white;
+	width:200ex;
 }
 h2{
-	border-width: 5px;
-	font-size: 30px;
 	color: black;
+}
+#GI{
+	font-size: 20px;
+	color: black;
+
 }
 table{
 	border-collapse: collapse;
@@ -49,4 +65,5 @@ table, td, th{
 	text-align: center;
 	color: black;
 	background-color: white;
+	font-size: 12px;
 }
