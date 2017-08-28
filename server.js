@@ -1,23 +1,16 @@
 
 require('dotenv').config();
 const express = require('express');
-const fileUpload= require('express-fileupload');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoClient = require('mongodb').MongoClient;
 var path = require('path');
-var fs = require('file-system');
+//var fs = require('file-system');
+var fs = require('fs');
 var multer = require('multer');
-
-
-// var thumbnailPlugin = thumbnailPluginLib.thumbnailPlugin;
-// var make_upload_to_model = thumbnailPluginLib.make_upload_to_model;
-// var uploads_base = path.join(__dirname, "uploads");
-// var uploads = path.join(uploads_base, "u");
-
-
 var assert = require('assert');
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 var db;
 var ObjectId = require('mongodb').ObjectId;
 var schema = mongoose.Schema;
@@ -59,15 +52,6 @@ var memberSchema = mongoose.Schema({
 	img: {data: Buffer, contentType: String}
 
 });
-// memberSchema.plugin(thumbnailPlugin, {
-// 	name: "photo",
-//     format: "png",
-//     size: 80,
-//     inline: false,
-//     save: true,
-//     upload_to: make_upload_to_model(uploads, 'photos'),
-//     relative_to: uploads_base
-// });
 
 var Member = mongoose.model('Member', memberSchema);
 
@@ -81,12 +65,12 @@ mongoClient.connect(process.env.MONGODB_URI,(err,database) =>{
   });
 })
 
-app.use(fileUpload());
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static(__dirname));
-app.use(multer({dest:'./uploads/'}).single('singleInputFileName'));
+app.set('views', path.join(__dirname, 'views'));
+
 
 
 
@@ -104,22 +88,40 @@ app.get('/profile/:_id/image', function(req,res,next) {
 	});
   });
 
-// app.post('/upload',function(req,res){
-		
-// 		var newItem = new Member();
-// 		newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
-// 		newItem.img.contentType = ‘image/png’;
-// 		newItem.save();
-// 	   });
 
-app.post('/upload/:_id', function(req, res){
-	Member.findById(id, function(err, doc){
-		doc.img.data = fs.readFileSync(req.files.userPhoto.path);
-		doc.img.contentType = 'image/png';
-		doc.img.save();
-		res.render('member.ejs', {members: doc});
-		})
-	})
+  app.post('/upload/:_id', multer({ dest: './uploads/'}).single('upl'), function(req,res){
+	var imgPath = req.file.path;
+	var id=req.params._id;
+	console.log(imgPath);
+	Member.findById(id, function(err, mem){
+		mem.img.data = fs.readFileSync(imgPath);
+    	mem.img.contentType = 'image/png';
+    	mem.save(function (err, a) {
+      	if (err) throw err;
+      	console.error('saved img to mongo');
+      	res.redirect(req.get('referer'));
+		});
+	});
+});
+
+  app.get('/photo/:_id', (req,res) => {
+    console.log(req.params._id)
+    Member.findById(req.params._id, function (err, doc) {
+        if (err) return next(err);
+        res.contentType(doc.img.contentType);
+        res.send(doc.img.data);
+      });
+})
+    
+
+// app.post('/upload/:_id', function(req, res){
+// 	Member.findById(id, function(err, doc){
+// 		doc.img.data = fs.readFileSync(req.files.userPhoto.path);
+// 		doc.img.contentType = 'image/png';
+// 		doc.img.save();
+// 		res.render('member.ejs', {members: doc});
+// 		})
+// 	})
 
 	
  

@@ -1,20 +1,17 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
 	<title><%=members.HFirstName%> and <%=members.WFirstName%> <%=members.LastName%></title>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/CSS/member-style.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	<img src="http://jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2.jpeg" id="img">
-
-<!--	<form method="post" enctype="multipart/form-data" action="/upload/<%=members._id%>">
-	 	<img src="/profile/<%=members._id%>/image/" id="img2" name="userPhoto" >
-		 <div id="choosePhoto">
-			<input type="file" onchange="previewFile()">
-			<input type="submit" value="Upload">
-		</div>
-	</form>-->
+ 	<form action="/upload/<%=members._id%>" enctype="multipart/form-data" method="post">
+			<p><img src="/photo/<%=members._id%>" id="img"></p>
+            <br><input type="file" name="upl" id="fileBut" onchange="previewFile()" accept="image/*">
+            <input type="submit" value="Upload" id="uplBut">
+    </form>
 
 
 
@@ -160,20 +157,20 @@
 //  }
 
 
-//   function previewFile(){
-//        var preview = document.querySelector('img'); //selects the query named img
-//        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-//        var reader  = new FileReader();
+  function previewFile(){
+       var preview = document.querySelector('img'); //selects the query named img
+       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+       var reader  = new FileReader();
 
-//        reader.onloadend = function () {
-//            preview.src = reader.result;
-//        }
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
 
-//        if (file) {
-//            reader.readAsDataURL(file); //reads the data as a URL
-//        } else {
-//            preview.src = "";
-//        }
-//   }
+       if (file) {
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.src = "";
+       }
+  }
  	</script>
 </html>

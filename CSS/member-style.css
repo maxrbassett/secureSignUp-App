@@ -14,6 +14,17 @@
 	left: 30px;
 	top: 30px;
 }
+#fileBut{
+	position: relative;
+	left: 30px;
+	border-radius: 10px;
+	border: 1px solid white;
+	
+}
+#uplBut{
+	position: relative;
+	left: -30px;
+}
 #choosePhoto{
 	position: absolute;
 	top: 260px;
