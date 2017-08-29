@@ -32,7 +32,6 @@
              <a href="/member/<%=members[i]._id%>" id="members"><%=members[i].LastName%></a>
              <%if(!(i+1 >= members.length)){%>
                <%if(members[i].MoveinDate.toUTCString().replace("00:00:00 GMT"," ") !== members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")) {%>
-                  
                   <br><u><%=members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></u><br>
                <%}%>
               <%}%>
@@ -42,3 +41,4 @@
       <%}%>
  </body>
 </html>
+

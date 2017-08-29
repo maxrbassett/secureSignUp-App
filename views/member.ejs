@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
 	<title><%=members.HFirstName%> and <%=members.WFirstName%> <%=members.LastName%></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/CSS/member-style.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body>
- 	<form action="/upload/<%=members._id%>" enctype="multipart/form-data" method="post">
-			<p><img src="/photo/<%=members._id%>" id="img"></p>
+<body onload="rotateDisappear()">
+<a id="back" href="/index">Back to Member List</a>
+	<div id="printBut">
+		<br>Print<br><button onclick="printButton()" id="button" ></button>
+	</div>
+
+ 	<div id="photoDiv">
+		<button onclick="rotate()" id="rotBut">Rotate Image</button>
+	 	<form action="/upload/<%=members._id%>" enctype="multipart/form-data" method="post">
+			<p><img src="/photo/<%=members._id%>" id="img" class="normal"></p>
             <br><input type="file" name="upl" id="fileBut" onchange="previewFile()" accept="image/*">
             <input type="submit" value="Upload" id="uplBut">
-    </form>
-
-
+	
+    	</form>
+	</div>
 
 	<div id="fam">
 		<h3 id="FirstNames"><%=members.HFirstName%> and <%=members.WFirstName%></h3>
 		<h1 id="LastName"><%=members.LastName%></h1>
 	</div>
-		<br><br><u><h2 id="GI">General Information</h2></u>
+	<div id="tables">
+		<br><u><h2 id="GI">General Information</h2></u>
 		<table id="GeneralTable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 			<tr>
 				<th><%=members.HFirstName%>'s Phone Number</th>
@@ -120,9 +127,9 @@
 					<td><%=members.WSchool%></td>
 				</tr>		
 			</table>
-
+	<div id="workHobbies">
 		<u><h2 id="GI">Work</h2></u>
-			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+			<table id="worktable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th><%=members.HFirstName%></th>
 					<td><%=members.HWork%></td>
@@ -134,7 +141,7 @@
 			</table>
 
 		<u><h2 id="GI">Hobbies</h2></u>
-			<table style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
+			<table id="hobbiestable" style="width:40%" class="w3-table w3-striped w3-bordered w3-large">
 				<tr>
 					<th><%=members.HFirstName%></th>
 					<td><%=members.HHobbies%></td>
@@ -144,10 +151,11 @@
 					<td><%=members.WHobbies%></td>
 				</tr>
 			</table>
-		
-		</form>
-	</body>
-	 <script type="text/javascript">
+		</div>
+	</div>
+</form>
+</body>
+ <script type="text/javascript">
 	   
 //  function OnSubmitForm()
 // {
@@ -155,12 +163,70 @@
 // 	document.uploadForm.action ="/upload/<%=members._id%>/" + fileInput;
 //  	return true;
 //  }
+	
+function rotate() {
+		var element = document.getElementById('img');
+		var rotButt = document.getElementById("rotBut");
+		var chooseFile = document.getElementById("fileBut");
+		var uplButt = document.getElementById("uplBut");
+
+		if (element.className === "normal") {
+			element.className = "rotate";
+			rotButt.style.top=5 + "px";
+			chooseFile.style.top=30 + "px";
+			uplButt.style.top=30 + "px";
+
+		}
+		else if ( element.className === "rotate") {
+			element.className = 'normal';
+			rotButt.style.top=25 + "px";
+			chooseFile.style.top=0 + "px";
+			uplButt.style.top=0 + "px";
+
+		}
+
+	chooseFile.className = "moveDown";
+	uplButt.className = "moveDown";
+	}
 
 
+function printButton(){
+	var rotBut = document.getElementById("rotBut");
+	var chooseFile = document.getElementById("fileBut");
+	var uplBut = document.getElementById("uplBut");
+	var printer = document.getElementById("printBut");
+
+	rotBut.style.visibility = "hidden";
+	chooseFile.style.visibility = "hidden";
+	uplBut.style.visibility = "hidden";
+	printer.style.visibility = "hidden";
+
+	var GI = document.getElementById("tables");
+		GI.className = "moveGIUp";
+	
+	var famchange = document.getElementById("fam");
+	famchange.className = "shrinkName";
+
+	var imgChange = document.getElementById("img");
+	if(imgChange.className === "rotate"){
+		imgChange.className = "shrinkRotate";
+	}else if (imgChange.className === "normal"){
+		imgChange.className = "shrinkNormal";
+	}
+
+	window.print();
+}
+
+function rotateDisappear(){
+	var rotBut = document.getElementById("rotBut");
+	rotBut.style.visibility = "hidden";
+}
   function previewFile(){
        var preview = document.querySelector('img'); //selects the query named img
        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
        var reader  = new FileReader();
+	   var rotBut = document.getElementById("rotBut");
+		rotBut.style.visibility = "visible";
 
        reader.onloadend = function () {
            preview.src = reader.result;
@@ -171,6 +237,12 @@
        } else {
            preview.src = "";
        }
+
+  }
+
+  function hidepic(){
+	  var imag = document.getElementById("img");
+	  imag.className = "hidePic";
   }
  	</script>
 </html>

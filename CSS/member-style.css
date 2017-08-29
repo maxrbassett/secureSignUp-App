@@ -1,3 +1,23 @@
+#printBut{
+	position: absolute;
+	right: 20px;
+	top:10px;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+}
+#button{
+	background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/1235-200.png);
+	background-size: 100%;
+	width: 30px;
+	height: 30px;
+	background-position: center;
+	background-color: Transparent;
+	overflow: hidden;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
 #img{
 	max-height: 300px;
 	max-width: 300px;
@@ -7,12 +27,46 @@
 	border-radius: 25px;
 	border: 2px solid black;
 }
-#img2{
+#img1{
 	max-height: 300px;
 	max-width: 300px;
 	position: relative;
 	left: 30px;
 	top: 30px;
+	border-radius: 25px;
+	border: 2px solid black;
+}
+hidePict{
+	display: none;
+}
+.rotate {
+	-ms-transform: rotate(90deg);
+	 -webkit-transform: rotate(90deg);
+	  transform: rotate(90deg);
+ }
+ 
+ .normal {
+	-ms-transform: rotate(0deg);
+	 -webkit-transform: rotate(0deg);
+	  transform: rotate(0deg);
+ }
+.moveDown{
+	position: relative;
+	top: 10px;
+}
+#moveUp{
+	position: absolute;
+	bottom: 100px;
+}
+#rotBut{
+	position: relative;
+	bottom: -30px;
+	left: 30px;
+}
+#back{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
 }
 #fileBut{
 	position: relative;
@@ -52,6 +106,28 @@
 	left:400px;
 	top: 50px;
 }
+.moveGIUp{
+	position: relative;
+	top: -40px;
+}
+.shrinkName{
+	position: absolute;	
+	left: 100px;
+	top: 50px;
+
+
+}
+.shrinkRotate{
+	width: 150px;
+	height: 130px;
+	-ms-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	 transform: rotate(90deg);
+}
+.shrinkNormal{
+	height: 150px;
+	width: 170px;
+}
 body{
 	padding-bottom: 50px;
 	padding-left: 10px;
@@ -77,4 +153,12 @@ table, td, th{
 	color: black;
 	background-color: white;
 	font-size: 12px;
+}
+.bringToSide{
+	position: relative;
+	top: -500px;
+	left: 600px;
+}
+.newTable{
+	width: 20%;
 }

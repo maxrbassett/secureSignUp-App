@@ -49,7 +49,7 @@ var memberSchema = mongoose.Schema({
 	WWork: {type: String},
 	HHobbies: {type: String},
 	WHobbies: {type: String},
-	img: {data: Buffer, contentType: String}
+	img: {data: Buffer, contentType: String, required: false }
 
 });
 
@@ -105,12 +105,21 @@ app.get('/profile/:_id/image', function(req,res,next) {
 });
 
   app.get('/photo/:_id', (req,res) => {
-    console.log(req.params._id)
-    Member.findById(req.params._id, function (err, doc) {
-        if (err) return next(err);
-        res.contentType(doc.img.contentType);
-        res.send(doc.img.data);
-      });
+	Member.findById(req.params._id, function(err, mem){
+		console.log(mem.img.contentType);
+		if(mem.img.contentType != undefined){
+			console.log("i am in if");
+    		console.log(req.params._id)
+    		Member.findById(req.params._id, function (err, doc) {
+        	if (err) return next(err);
+        	res.contentType(doc.img.contentType);
+        	res.send(doc.img.data);
+	  	});
+	}else{
+		console.log("i am in else");
+		res.sendFile(path.resolve(__dirname + '/blank-profile-pic.png'));
+	}
+	});
 })
     
 
