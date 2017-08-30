@@ -134,6 +134,9 @@ body{
 	background-color: white;
 	width:200ex;
 }
+.birthday{
+	display: none;
+}
 h2{
 	color: black;
 }
@@ -162,3 +165,4 @@ table, td, th{
 .newTable{
 	width: 20%;
 }
+

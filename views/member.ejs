@@ -36,10 +36,19 @@
 				<th><%=members.WFirstName%>'s Phone Number</th>
 				<td><%=members.WPhone%></td>
 			</tr>
+			<tr id= "HEmail">
+				<th><%=members.HFirstName%>'s Email</th>
+				<td><%=members.HEmail%></td>
+			</tr>
+			<tr id= "WEmail">
+				<th><%=members.WFirstName%>'s Email</th>
+				<td><%=members.WEmail%></td>
+			</tr>
 			<tr>
 				<th>Address</th>
 				<td><%=members.Address%></td>
 			</tr>
+			
 			<tr>
 				<th><%=members.HFirstName%>'s Birthday</th>
 				<td><%=members.HBirthday%></td>
@@ -48,6 +57,7 @@
 				<th><%=members.WFirstName%>'s Birthday</th>
 				<td><%=members.WBirthday%></td>
 			</tr>
+			
 			<tr>
 				<th>Ward Move in Date</th>
 				<td><%=members.MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></td>
@@ -153,7 +163,9 @@
 			</table>
 		</div>
 	</div>
+
 </form>
+
 </body>
  <script type="text/javascript">
 	   
@@ -195,6 +207,9 @@ function printButton(){
 	var chooseFile = document.getElementById("fileBut");
 	var uplBut = document.getElementById("uplBut");
 	var printer = document.getElementById("printBut");
+	document.getElementById("GeneralTable").deleteRow(2);
+	document.getElementById("GeneralTable").deleteRow(2);
+
 
 	rotBut.style.visibility = "hidden";
 	chooseFile.style.visibility = "hidden";

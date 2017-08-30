@@ -26,6 +26,8 @@ var memberSchema = mongoose.Schema({
 	HFirstName: {type: String},
 	HPhone: {type: String},
 	WPhone: {type: String},
+	HEmail: {type: String},
+	WEmail: {type: String},
 	Address: {type: String},
 	HBirthday: {type: String},
 	WBirthday: {type: String},
