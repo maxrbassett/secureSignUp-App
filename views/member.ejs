@@ -207,6 +207,7 @@ function printButton(){
 	var chooseFile = document.getElementById("fileBut");
 	var uplBut = document.getElementById("uplBut");
 	var printer = document.getElementById("printBut");
+	var back = document.getElementById("back");
 	document.getElementById("GeneralTable").deleteRow(2);
 	document.getElementById("GeneralTable").deleteRow(2);
 
@@ -215,6 +216,8 @@ function printButton(){
 	chooseFile.style.visibility = "hidden";
 	uplBut.style.visibility = "hidden";
 	printer.style.visibility = "hidden";
+	back.style.visibility = "hidden";
+	document.body.style.zoom = "100%";
 
 	var GI = document.getElementById("tables");
 		GI.className = "moveGIUp";

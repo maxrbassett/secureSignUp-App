@@ -67,6 +67,11 @@ hidePict{
 	position: fixed;
 	bottom: 10px;
 	right: 10px;
+	color: white;
+	border: 1px solid black;
+	background-color: #121111;
+	border-radius: 2px;
+	padding: 5px;
 }
 #fileBut{
 	position: relative;
@@ -126,13 +131,15 @@ hidePict{
 }
 .shrinkNormal{
 	height: 150px;
-	width: 170px;
+	width: 190px;
 }
 body{
 	padding-bottom: 50px;
 	padding-left: 10px;
 	background-color: white;
 	width:200ex;
+	zoom: 130%;
+
 }
 .birthday{
 	display: none;
