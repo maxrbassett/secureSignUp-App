@@ -1,6 +1,6 @@
 #printBut{
-	position: absolute;
-	right: 20px;
+	position: fixed;
+	right: 10px;
 	top:10px;
 	text-align: center;
 	font-size: 16px;
