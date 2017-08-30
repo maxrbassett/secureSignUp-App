@@ -151,20 +151,16 @@ app.get('/ThankYou', (req, res) => {
 
 
 app.get('/index', (req,res) => {
-	
- 	// 	db.collection('members').find().toArray(function(err, result) {
-  	// 	if (err) return console.log(err)
-  	// 	res.render('index.ejs', {members: result})
-	// })
-	Member.find({}, function(err, users) {
+	Member.find({}).sort({"MoveinDate": 1}).exec(function(err, users){
 		var userMap = {};
+		
+			users.forEach(function(user) {
+			  userMap[user._id] = user;
+			});
+		
+			res.render('index.ejs', {members: users});  
+		  });
 	
-		users.forEach(function(user) {
-		  userMap[user._id] = user;
-		});
-	
-		res.render('index.ejs', {members: users});  
-	  });
 })
 
 app.get('/member/:_id', (req,res) => {
