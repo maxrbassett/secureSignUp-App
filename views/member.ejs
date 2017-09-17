@@ -60,7 +60,9 @@
 			
 			<tr>
 				<th>Ward Move in Date</th>
+				<%if(members.MoveinDate != null){%>
 				<td><%=members.MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></td>
+				<%}%>
 			</tr>
 			<tr>
 				<th>Plan on staying in the ward</th>

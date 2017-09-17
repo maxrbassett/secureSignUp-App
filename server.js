@@ -158,7 +158,7 @@ app.get('/index', (req,res) => {
 			  userMap[user._id] = user;
 			});
 		
-			res.render('index.ejs', {members: users});  
+			res.render('index2.ejs', {members: users});  
 		  });
 	
 })
