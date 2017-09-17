@@ -25,12 +25,21 @@
       </div>
     </div>
     <h2><ul id="memberlist">
-      
+    <% if(members[0].MoveinDate != null){%>
+     <u><%=members[0].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></u><br>
+       <% }%>
           <% for (var i=0; i<members.length; i++) {%>
             <li>
              <a href="/member/<%=members[i]._id%>" id="members"><%=members[i].LastName%></a>   
-            </li>
+            <%if(!(i+1 >= members.length)){%>
+                <%if(members[i].MoveinDate != null){%>
+                    <%if(members[i].MoveinDate.toUTCString().replace("00:00:00 GMT"," ") !== members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")) {%>
+                        <br><u><%=members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></u><br>
+                    <%}%>
+                <%}%>
             <%}%>
+            </li>
+         <%}%>
       </ul></h2>
  </body>
 </html>
