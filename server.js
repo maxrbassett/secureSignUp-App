@@ -231,10 +231,17 @@ app.get('/singingMembers', (req,res) => {
 })
 
 app.get('/delete', (req,res) => {
-	db.collection('members').find().toArray(function(err, result) {
-  		if (err) return console.log(err)
-  		res.render('deletePage.ejs', {members: result})
-	})
+	Member.find({}).sort({"MoveinDate": 1}).exec(function(err, users){
+		var userMap = {};
+		
+			users.forEach(function(user) {
+			  userMap[user._id] = user;
+			});
+		
+			res.render('deletePage.ejs', {members: users});  
+		  });
+
+		  
 })
 
 app.get('/deleteMembers/:_id', (req, res) => {

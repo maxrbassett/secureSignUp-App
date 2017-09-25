@@ -4,11 +4,12 @@
 
 <link href="CSS/index-style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="script.js"></script>
+
 </head>
 
 <body onload="passWord()">
 
-  <div id="top">
+  <div id="top"  style="width: 100%;">
   <h1>List of Members</h1>
 </div><br>
 
@@ -24,9 +25,9 @@
         <a href="/conductingMembers">Can Conduct</a>
       </div>
     </div>
-    <h2><ul id="memberlist">
+   <br><br><h2><ul id="memberlist">
     <% if(members[0].MoveinDate != null){%>
-     <u><%=members[0].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></u><br>
+    <div class="date"><%=members[0].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></div>
        <% }%>
           <% for (var i=0; i<members.length; i++) {%>
             <li>
@@ -34,7 +35,7 @@
             <%if(!(i+1 >= members.length)){%>
                 <%if(members[i].MoveinDate != null){%>
                     <%if(members[i].MoveinDate.toUTCString().replace("00:00:00 GMT"," ") !== members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")) {%>
-                        <br><u><%=members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></u><br>
+                        <br><driv class="date"><%=members[i+1].MoveinDate.toUTCString().replace("00:00:00 GMT"," ")%></div><br>
                     <%}%>
                 <%}%>
             <%}%>
