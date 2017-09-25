@@ -57,7 +57,7 @@ body{
 
     #deleteButton {
         position: absolute;
-        right: 5px;
+        right: 20px;
         top: 10px;
         background-image: url("http://www.iconsdb.com/icons/preview/white/trash-2-xxl.png");
         background-size: 90%;
